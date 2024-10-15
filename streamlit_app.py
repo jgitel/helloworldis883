@@ -1,26 +1,25 @@
-import streamlit as st from openai import OpenA
+import streamlit as st
+from openai import OpenAI
 import os
 
-st.title("🎈 Welcome to Hell")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
+st.title("My Super Awesome OpenAI API Deployment!")
+
+prompt = st.text_input("What is your prompt today?", "Damascus is")
 
 ### Load your API Key
-my_secret_key = userdata.get ('MyOpenAIKey')
-os.environ ["OPENAI_API_KEY"] = "asasasaas")
+os.environ["OPENAI_API_KEY"] = st.secrets["OpenAIkey"]
 
-### Request the answer to the question "Damascus is a"
+### OpenAI stuff
 client = OpenAI()
 response = client.chat.completions.create(
-    model="gpt -40-mini", 
-    messages=[
-        {"role": "system", "content": "Complete the following prefix"}, 
-        {"role": "user", "content": "Damascus is a"}
-    ],
-    seed = BUID,
-    n=10,
-    max_tokens=20
+  model="gpt-4o-mini",
+  messages=[
+    {"role": "system", "content": "Complete the following prefix"},
+    {"role": "user", "content": prompt}
+  ],
 )
 
-### Print all 10 complatione:
+### Display
+st.write(
+    response.choices[0].message.content
+)
