@@ -4,7 +4,7 @@ import os
 import transformers
 from transformers import pipeline
 
-st.title("My Super Awesome OpenAI API Deployment!")
+st.title("Justin's Spectacle of Artificial Intelligence's Peak Capabilities")
 
 prompt = st.text_input("What is your prompt today?", "Damascus is")
 prompt2 = st.text_input("How many tokens do you want your response to be today?", "50")
