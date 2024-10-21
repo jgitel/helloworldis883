@@ -12,7 +12,20 @@ tokens = st.text_input("How many tokens do you want your response to be today?",
 ### Load your API Key
 os.environ["OPENAI_API_KEY"] = st.secrets["MyOpenAIKey"]
 
+### OpenAI stuff
+client = OpenAI()
+response = client.chat.completions.create(
+  model="gpt2",
+  messages=[
+    {"role": "system", "content": "Complete the following prefix", max_tokens=tokens},
+    {"role": "user", "content": prompt}
+  ],
+)
 
+### Display
+st.write(
+    response.choices[0].message.content
+)
 
 
 ### Create a GPT2 generator pipeline
