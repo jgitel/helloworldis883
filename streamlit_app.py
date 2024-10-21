@@ -4,21 +4,22 @@ import os
 
 st.title("My Super Awesome OpenAI API Deployment!")
 
-### Load your API Key
-my_secret_key = st.secrets['MyOpenAIKey']
-os.environ["OPENAI_API_KEY"] = my_secret_key
+prompt = st.text_input("What is your prompt today?", "Damascus is")
 
-### Request the answer to the question "Damascus is a"
+### Load your API Key
+os.environ["OPENAI_API_KEY"] = st.secrets["OpenAIkey"]
+
+### OpenAI stuff
 client = OpenAI()
 response = client.chat.completions.create(
   model="gpt-4o-mini",
   messages=[
     {"role": "system", "content": "Complete the following prefix"},
-    {"role": "user", "content": "Damascus is a"}
+    {"role": "user", "content": prompt}
   ],
 )
 
-### Print all 10 completions
+### Display
 st.write(
     response.choices[0].message.content
 )
