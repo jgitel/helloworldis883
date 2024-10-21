@@ -5,6 +5,7 @@ import os
 st.title("My Super Awesome OpenAI API Deployment!")
 
 prompt = st.text_input("What is your prompt today?", "Damascus is")
+tokens = st.text_input("How many tokens do you want your response to be today?", "50")
 
 ### Load your API Key
 os.environ["OPENAI_API_KEY"] = st.secrets["MyOpenAIKey"]
@@ -14,7 +15,7 @@ client = OpenAI()
 response = client.chat.completions.create(
   model="gpt-4o-mini",
   messages=[
-    {"role": "system", "content": "Complete the following prefix"},
+    {"role": "system", "content": "Complete the following prefix", max_tokens=tokens},
     {"role": "user", "content": prompt}
   ],
 )
