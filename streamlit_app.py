@@ -1,7 +1,6 @@
 import streamlit as st
 from openai import OpenAI
 import os
-!pip install transformers datasets
 import transformers
 from transformers import pipeline
 
