@@ -19,7 +19,7 @@ generator = pipeline('text-generation', model='gpt2')
 
 
 ### Generate the answer to the prompt with low temperature and Display result
-st.write(generator(prompt, max_length=tokens, temperature=0.5, num_return_sequences=1, truncation=True)
+st.write(generator(prompt, max_length=tokens, temperature=0.1, num_return_sequences=1, truncation=True)
         )
 
 ### Generate the answer to the prompt with high temperature and Display result
