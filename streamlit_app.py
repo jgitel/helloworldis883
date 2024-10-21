@@ -8,7 +8,7 @@ st.title("My Super Awesome OpenAI API Deployment!")
 
 prompt = st.text_input("What is your prompt today?", "Damascus is")
 prompt2 = st.text_input("How many tokens do you want your response to be today?", "50")
-tokens = str(prompt2)
+tokens = int(prompt2)
 
 ### Load your API Key
 os.environ["OPENAI_API_KEY"] = st.secrets["MyOpenAIKey"]
