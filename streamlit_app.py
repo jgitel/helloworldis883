@@ -20,5 +20,5 @@ generator = pipeline('text-generation', model='gpt2')
 
 
 ### Generate the answer to the question the prompt and Display result
-st.write(generator(prompt, max_length=tokens, num_return_sequences=2, truncation=True)
+st.write(generator(prompt, max_length=str.tokens, num_return_sequences=2, truncation=True)
         )
