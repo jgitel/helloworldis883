@@ -7,7 +7,7 @@ st.title("My Super Awesome OpenAI API Deployment!")
 prompt = st.text_input("What is your prompt today?", "Damascus is")
 
 ### Load your API Key
-os.environ["OPENAI_API_KEY"] = st.secrets["OpenAIkey"]
+os.environ["OPENAI_API_KEY"] = st.secrets["MyOpenAIkey"]
 
 ### OpenAI stuff
 client = OpenAI()
